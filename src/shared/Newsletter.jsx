@@ -26,7 +26,7 @@ const sendEmail=(e)=>{
   toast.info("Please wait, while we confirm");
   emailjs.send('service_511w89k', 'template_m5rhqfx', templateParams,'369hgvCugLwIo9Twi')
     .then(function(response) {
-       console.log('SUCCESS!', response.status, response.text);
+      //  console.log('SUCCESS!', response.status, response.text);
        toast.success("Thank You for Subscribing");
     }, function(error) {
       //  console.log('FAILED...', error);

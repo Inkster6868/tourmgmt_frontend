@@ -38,7 +38,7 @@ const [booking,setBooking]=useState({
         // console.log(booking);
         e.preventDefault();
 
-        console.log(booking);
+        // console.log(booking);
 
         try {
             if(!user || user===undefined || user===null){

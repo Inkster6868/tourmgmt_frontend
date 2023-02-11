@@ -12,7 +12,7 @@ const SearchResultList = () => {
   const location =useLocation();  /* now the state we set using the navigate hook, we will use it using the useLocation hook */
 
   const [data]=useState(location.state);
-  console.log(data);
+  // console.log(data);
 
   return <>
       <CommonSection title={'Tour Search Result'}/>
