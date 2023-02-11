@@ -25,6 +25,9 @@ const [booking,setBooking]=useState({
     guestSize:1,
     bookAt:''
 })
+useEffect(() => {
+  setBooking({...booking,tourName:title})
+}, [title])
 
     const handleChange=e=>{
         setBooking(prev=>({ ...prev, [e.target.id]:e.target.value}))
