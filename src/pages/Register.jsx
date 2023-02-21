@@ -40,11 +40,14 @@ const handleClick=async e=>{
           
           body:JSON.stringify(credentials)  /* when we need to send data to server or receive data form server we stringify data from the object literal form to the JSON string form  */
         })   /* the response received from the backend */
-        const result= await res.json()
+        const result= await res.json();
 
-        if(!res.ok) toast(result.message);
+        if(!res.ok) {
+          toast(result.message)
+        }
 
         dispatch({type:"REGISTER_SUCCESS"});
+        toast(result.message);
         navigate('/login');
 
 
