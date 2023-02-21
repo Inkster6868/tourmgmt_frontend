@@ -46,9 +46,22 @@ const handleClick=async e=>{
           toast(result.message)
         }
 
+        else{
+          await toast.success(result.message, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
+          }
+        // navigate('/login');
         dispatch({type:"REGISTER_SUCCESS"});
-        toast(result.message);
-        navigate('/login');
+        console.log(result.message);
+        
 
 
       } catch (error) {
@@ -77,7 +90,7 @@ const handleClick=async e=>{
                     <input type="text" placeholder='Username' required id='username' onChange={handleChange} />
                   </FormGroup>
                   <FormGroup>
-                    <input type="email" placeholder='Email' required id='email' onChange={handleChange} />
+                    <input type="email" placeholder='Email' required  id='email' onChange={handleChange} />
                   </FormGroup>
                   <FormGroup>
                     <input type="password" placeholder='Password' required id='password' onChange={handleChange} />
@@ -91,7 +104,8 @@ const handleClick=async e=>{
       </Row>
     </Container>
     <ToastContainer/>
-  </section>
+  </section>  
+  
 }
 
 export default Register
