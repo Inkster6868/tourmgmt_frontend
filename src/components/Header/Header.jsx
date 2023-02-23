@@ -2,6 +2,7 @@ import React ,{useEffect,useRef,useContext} from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { Container, Row, Button } from "reactstrap";
 import logo from "../../assets/images/logo.png";
+// import {FontAwesomeIcon} from "font-awesome";
 import "./header.css"
 import {AuthContext} from "../../context/AuthContext";
 
@@ -77,8 +78,10 @@ const Header = () => {
               <div className="nav__btns d-flex align-items-center gap-4">     {/* agar user logged in hai toh state mai hogi uski value toh logout aur uska name display krenge nhi toh normal  */}
               {      
                 user?<>
-                  <h5 className="mb-0">{user.username}</h5>
-                  <Button className="btn btn-dark" onClick={logout}>Logout</Button>
+                  
+               <i className="ri-hotel-fill"></i> <h5 style={{marginLeft
+               :-20, marginRight:20}} className="mb-0 userin ">{user.username}</h5>
+                  <Button className="btn btn-dark" onClick={logout}>Logout</Button> 
                 </>: 
                     <> 
                 <Button className="btn secondary__btn"><Link to='/login'>Login</Link></Button>

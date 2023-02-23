@@ -97,6 +97,16 @@ ul {
   z-index: 999;           /* we just give it the max z-index so that it always stay on top of other elements */
 }
 
+.userin{
+  color:#ff7e01
+}
+
+.about:hover{
+  color:orange;
+  cursor: pointer;
+}
+
+
 @media only screen and (max-width:992px){
   .primary__btn a,
   .secondary__btn a{

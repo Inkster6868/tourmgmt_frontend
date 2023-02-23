@@ -14,13 +14,15 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
+  const [loader,setLoader]=useState(0);
+
   const [credentials,setCredentials]=useState({
     email:undefined,
     password:undefined,
 })
 
     const navigate=useNavigate();
-    const {dispatch}=useContext(AuthContext); /* now basically we will receive all the values given by AuthContext.provider */
+    const {loading,dispatch}=useContext(AuthContext); /* now basically we will receive all the values given by AuthContext.provider */
 
   const handleChange=e=>{
     setCredentials(prev=>({ ...prev, [e.target.id]:e.target.value}))
@@ -54,6 +56,7 @@ const handleClick= async e=>{
               progress: undefined,
               theme: "light",
               });
+              setLoader+=1;
             }
           
           else {
@@ -64,6 +67,7 @@ const handleClick= async e=>{
 
       } catch (error) {
           dispatch({type:'LOGIN_FAILURE',payload:error.message})
+          setLoader+=1;
       }
 }
 
@@ -90,7 +94,7 @@ const handleClick= async e=>{
                   <FormGroup>
                     <input type="password" placeholder='Password' required id='password' onChange={handleChange} />
                   </FormGroup>
-                      <Button className='btn secondary__btn auth__btn' type='submit'>Login</Button>
+                      <Button className='btn secondary__btn auth__btn' type='submit'> {loading===null? <i class="ri-loader-2-line"></i>: "Login"} </Button>
                 </Form>
                 <p>Don't have an account? <Link to='/register'>Create</Link></p>
                </div>
